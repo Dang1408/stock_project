@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "fetch-data-stock"
+version = "0.1.0"
+description = ""
+authors = ["HaiDang2000 <dangvlh@fundiin.vn>"]
+readme = "README.md"
+packages = [{include = "fetch_data_stock"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
