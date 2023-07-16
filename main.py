@@ -26,16 +26,27 @@ if __name__ == "__main__":
 
     # get company profile information
 
-    for symbol in company_symbols:
-        company_profile_model = company_profile_dao.select(symbol)
+    # for symbol in company_symbols:
+    #     company_profile_model = company_profile_dao.select(symbol)
+    #
+    #     if company_profile_model is None:
+    #         company_profile_model = company_profile_dao.insert(get_company_profile_information(symbol))
+    #
+    #     stock_data_list = get_stock_data_by_yahoo_finance(symbol, company_profile_model)
+    #
+    #     for stock_data in stock_data_list:
+    #         stock_data_dao.insert(stock_data)
+    #     print("Inserted the stock data of symbol: " + symbol)
 
-        if company_profile_model is None:
-            company_profile_model = company_profile_dao.insert(get_company_profile_information(symbol))
+    company_profile_model = company_profile_dao.select("GOOGL")
 
-        stock_data_list = get_stock_data_by_yahoo_finance(symbol, company_profile_model)
+    if company_profile_model is None:
+        company_profile_model = company_profile_dao.insert(get_company_profile_information("GOOGL"))
 
-        for stock_data in stock_data_list:
-            stock_data_dao.insert(stock_data)
-        print("Inserted the stock data of symbol: " + symbol)
+    stock_data_list = get_stock_data_by_yahoo_finance("GOOGL", company_profile_model)
+
+    for stock_data in stock_data_list:
+        stock_data_dao.insert(stock_data)
+    print("Inserted the stock data of symbol: " + "GOOGL")
 
     postgresDb.close()

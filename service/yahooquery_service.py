@@ -20,7 +20,7 @@ def get_stock_data_by_yahoo_finance(symbol, model_profile: CompanyProfile) -> li
 
     list_of_stock_data = []
 
-    currency = ticker.summary_detail[symbol]['currency']
+    currency = "USD"
 
     # get stock price data
     data = ticker.history(period="max")
